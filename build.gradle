@@ -1,0 +1,40 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.boot.shell'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+    implementation 'javax.servlet:jstl:1.2'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.55'
+    implementation 'mysql:mysql-connector-java:8.0.26'
+    compileOnly 'org.projectlombok:lombok'
+    compileOnly 'javax.servlet:javax.servlet-api:3.1.0'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'org.apache.tiles:tiles-jsp:3.0.5'
+    implementation 'org.apache.tiles:tiles-servlet:3.0.5'
+    implementation 'org.apache.tiles:tiles-core:3.0.5'
+    implementation 'org.apache.tiles:tiles-api:3.0.5'
+    implementation 'org.apache.tiles:tiles-el:3.0.5'
+}
+
+test {
+    useJUnitPlatform()
+}
