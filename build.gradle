@@ -16,6 +16,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
     implementation 'org.springframework.boot:spring-boot-starter-tomcat'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
     implementation 'javax.servlet:jstl:1.2'
@@ -27,12 +28,14 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'junit:junit:4.12'
 
     implementation 'org.apache.tiles:tiles-jsp:3.0.5'
     implementation 'org.apache.tiles:tiles-servlet:3.0.5'
     implementation 'org.apache.tiles:tiles-core:3.0.5'
     implementation 'org.apache.tiles:tiles-api:3.0.5'
     implementation 'org.apache.tiles:tiles-el:3.0.5'
+    implementation 'junit:junit:4.12'
 }
 
 test {

@@ -18,22 +18,10 @@ import java.io.IOException;
 @Configuration
 @EnableTransactionManagement
 public class JdbcConfig {
+
     @Autowired
     ApplicationContext applicationContext;
 
-    /**
-     * DataSource 설정
-     * <bean id="dataSource"
-     *  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-     *
-     *  <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-     *  <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
-     *  <property name="username" value="intercast" />
-     *  <property name="password" value="pass123!" />
-     * </bean>
-     *
-     * @return
-     */
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -44,35 +32,11 @@ public class JdbcConfig {
         return dataSource;
     }
 
-    /**
-     * TransactionManager설정
-     *
-     * <bean id="transactionManager"
-     *  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-     *  <property name="dataSource" ref="dataSource"></property>
-     * </bean>
-     *
-     * @return
-     */
     @Bean
     public PlatformTransactionManager transactionManager() {
         return new DataSourceTransactionManager(dataSource());
     }
 
-    /**
-     * SqlSessionFactory 설정
-     *
-     * <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-     *  <property name="dataSource" ref="dataSource" />
-     *  <property name="configLocation" value="classpath:mybatis/configuration.xml" />
-     * <property name="mapperLocations" value="classpath:mybatis/mappers/** /*.xml" />
-     * </bean>
-     *
-     * @param dataSource
-     * @param applicationContext
-     * @return
-     * @throws IOException
-     */
     @Bean
     public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource,
                                                        ApplicationContext applicationContext) throws IOException {
@@ -83,17 +47,6 @@ public class JdbcConfig {
         return factoryBean;
     }
 
-
-    /**
-     * SqlSessionTemplate 설정
-     *
-     * <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-     *  <constructor-arg ref="sqlSessionFactory" />
-     * </bean>
-     *
-     * @param sqlSessionFactory
-     * @return
-     */
     @Bean
     public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
         return new SqlSessionTemplate(sqlSessionFactory);
