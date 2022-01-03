@@ -1,1 +1,3 @@
-Spring boot / Gradle / Java Configuration
+Spring boot / Gradle / Java Configuration / Mybatis ...
+
+틈틈이 만들어 놓고 필요할 때 갖다 써야겠다
