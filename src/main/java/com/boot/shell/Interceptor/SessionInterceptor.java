@@ -49,7 +49,7 @@ public class SessionInterceptor implements HandlerInterceptor {
     private boolean excludeSessUrl(HttpServletRequest request) {
         String url = request.getRequestURI().trim();
         for(Map<String, String> map : excludeSessUrlList){
-            if(url.indexOf(map.get("excludeUrl")) > -1 ){
+            if(url.indexOf(map.get("excludeUrl")) != -1 ){
                 return true;
             }
         }

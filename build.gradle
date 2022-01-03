@@ -30,6 +30,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'junit:junit:4.12'
 
+    implementation 'commons-fileupload:commons-fileupload:1.4'
     implementation 'org.apache.tiles:tiles-jsp:3.0.5'
     implementation 'org.apache.tiles:tiles-servlet:3.0.5'
     implementation 'org.apache.tiles:tiles-core:3.0.5'

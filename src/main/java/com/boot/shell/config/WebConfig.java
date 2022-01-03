@@ -10,11 +10,10 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
@@ -129,33 +128,31 @@ public class WebConfig implements WebMvcConfigurer {
         return new SessionInterceptor();
     }
 
+    // Interceptor 설정
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new SessionInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns("/test/**");
     }
-//
-//    @Override
-//    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-//        configurer.favorPathExtension(false)
-//                .favorParameter(true)
-//                .defaultContentType(MediaType.APPLICATION_JSON)
-//                .mediaType("xml", MediaType.APPLICATION_ATOM_XML)
-//                .mediaType("json", MediaType.APPLICATION_JSON);
-//    }
-//
-//    @Override
-//    public void addViewControllers(ViewControllerRegistry registry) {
-//        registry.addViewController("/accessDenied.htm").setViewName("error/accessDenied");
-//    }
-//
-//    @Bean
-//    public MultipartResolver multipartResolver() {
-//        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-//        resolver.setMaxInMemorySize(100000000);
-//        resolver.setMaxUploadSize(200000000);
-//        return resolver;
-//    }
+
+    // contenttype 설정
+    @Override
+    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+        configurer.favorParameter(false)
+                .defaultContentType(MediaType.APPLICATION_JSON)
+                .mediaType("xml", MediaType.APPLICATION_ATOM_XML)
+                .mediaType("json", MediaType.APPLICATION_JSON);
+    }
+
+    // fileUpload
+    @Bean
+    public MultipartResolver multipartResolver() {
+        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+        resolver.setMaxInMemorySize(50000000); // 50MB
+        resolver.setMaxUploadSize(100000000); // 100MB
+        resolver.setDefaultEncoding("UTF-8");
+        return resolver;
+    }
 
 }
