@@ -1,6 +1,6 @@
 package com.boot.shell.common.encrypt;
 
 public class EncryptConst {
-    public static final String SYMMETRIC_KEY = "Ks+CjPIx2G9PWI+eMpGXHH5b9cbHqbg=";
-    public static final String IV = "dk4abC+iUZt7Cw==";
+    public static final String SYMMETRIC_KEY = "DuMGy4gVRkpyzPU77Pp9Z1/E4n+KayWv";
+    public static final String IV = "DELi5q0C/9Ac5WLB";
 }

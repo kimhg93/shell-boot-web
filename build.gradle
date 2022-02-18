@@ -18,18 +18,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-aop'
     implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
     implementation 'javax.servlet:jstl:1.2'
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.55'
     implementation 'mysql:mysql-connector-java:8.0.26'
-    compileOnly 'org.projectlombok:lombok'
-    compileOnly 'javax.servlet:javax.servlet-api:3.1.0'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'junit:junit:4.12'
-
+    implementation 'org.jasypt:jasypt:1.9.2'
     implementation 'commons-fileupload:commons-fileupload:1.4'
     implementation 'org.apache.tiles:tiles-jsp:3.0.5'
     implementation 'org.apache.tiles:tiles-servlet:3.0.5'
@@ -37,6 +31,14 @@ dependencies {
     implementation 'org.apache.tiles:tiles-api:3.0.5'
     implementation 'org.apache.tiles:tiles-el:3.0.5'
     implementation 'junit:junit:4.12'
+
+    compileOnly 'org.projectlombok:lombok'
+    compileOnly 'javax.servlet:javax.servlet-api:3.1.0'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'junit:junit:4.12'
 }
 
 test {

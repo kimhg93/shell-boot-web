@@ -29,10 +29,6 @@ public class AES256Cipher {
         return INSTANCE;
     }
 
-    private AES256Cipher() {
-        IV = symmetricKey.substring(0, 16);
-    }
-
     public static String encrypt(String str)
             throws NoSuchPaddingException, NoSuchAlgorithmException, UnsupportedEncodingException,
             InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {

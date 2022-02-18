@@ -32,29 +32,29 @@ public class SessionInterceptor implements HandlerInterceptor {
 
         HttpSession session = request.getSession();
 
-        if(excludeSessUrl(request)) {
-            result = true;
-        } else {
-            SessionVo sessionVo = (SessionVo)session.getAttribute("session");
-
-            if(sessionVo == null){
-                logger.error("######### session null");
-            } else {
-                logger.error("######### session value : " + sessionVo.getId());
-            }
-        }
-        return result;
+//        if(excludeSessUrl(request)) {
+////            result = true;
+////        } else {
+////            SessionVo sessionVo = (SessionVo)session.getAttribute("session");
+////
+////            if(sessionVo == null){
+////                logger.error("######### session null");
+////            } else {
+////                logger.error("######### session value : " + sessionVo.getId());
+////            }
+////        }
+        return true;
     }
 
-    private boolean excludeSessUrl(HttpServletRequest request) {
-        String url = request.getRequestURI().trim();
-        for(Map<String, String> map : excludeSessUrlList){
-            if(url.indexOf(map.get("excludeUrl")) != -1 ){
-                return true;
-            }
-        }
-        return false;
-    }
+//    private boolean excludeSessUrl(HttpServletRequest request) {
+//        String url = request.getRequestURI().trim();
+//        for(Map<String, String> map : excludeSessUrlList){
+//            if(url.indexOf(map.get("excludeUrl")) != -1 ){
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
 
 }

@@ -24,7 +24,7 @@ public class CustomScheduler {
 
     @PostConstruct
     public void init() {
-        startScheduler();
+        startScheduler(10);
     }
 
     @PreDestroy
@@ -49,20 +49,24 @@ public class CustomScheduler {
         return () -> callJob(job);
     }
 
-    public void startScheduler(){
+    public void startScheduler(int a){
+        logger.info("Start Scheduler !!");
         JobList jobList = new JobList();
 
         scheduler = new ThreadPoolTaskScheduler();
         scheduler.setPoolSize(3);
         scheduler.initialize();
 
+        String cron = "*/"+a+" * * * * *";
+
         for(CustomScheduleVo job : jobList.getJobList()){
-            scheduler.schedule(runnable(job), getTrigger(job.getCron()));
+            scheduler.schedule(runnable(job), getTrigger(cron));
             logger.info(job.toString());
         }
     }
 
     public void stopScheduler() {
+        logger.info("Stop Scheduler !!");
         scheduler.shutdown();
     }
 
