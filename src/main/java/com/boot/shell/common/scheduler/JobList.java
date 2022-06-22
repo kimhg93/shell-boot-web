@@ -1,4 +1,4 @@
-package com.boot.shell.scheduler;
+package com.boot.shell.common.scheduler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +11,9 @@ public class JobList {
         CustomScheduleVo customScheduleVoB = new CustomScheduleVo();
         CustomScheduleVo customScheduleVoC = new CustomScheduleVo();
 
-        customScheduleVoA.setClassName("com.boot.shell.scheduler.TestJob");
-        customScheduleVoB.setClassName("com.boot.shell.scheduler.TestJob");
-        customScheduleVoC.setClassName("com.boot.shell.scheduler.TestJob");
+        customScheduleVoA.setClassName("com.boot.shell.common.scheduler.TestJob");
+        customScheduleVoB.setClassName("com.boot.shell.common.scheduler.TestJob");
+        customScheduleVoC.setClassName("com.boot.shell.common.scheduler.TestJob");
 
         customScheduleVoA.setMethodName("testJobA");
         customScheduleVoB.setMethodName("testJobB");

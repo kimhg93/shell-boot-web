@@ -42,8 +42,8 @@ public class JdbcConfig {
                                                        ApplicationContext applicationContext) throws IOException {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
-        factoryBean.setConfigLocation(applicationContext.getResource("classpath:/mybatis/configuration.xml"));
-        factoryBean.setMapperLocations(applicationContext.getResources("classpath:/mybatis/mappers/**/*.xml"));
+        factoryBean.setConfigLocation(applicationContext.getResource("classpath:config/mybatis/configuration.xml"));
+        factoryBean.setMapperLocations(applicationContext.getResources("classpath:config/mybatis/mappers/**/*.xml"));
         return factoryBean;
     }
 

@@ -5,6 +5,9 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
     <typeAliases>
+<!--        <typeAlias alias="map" type="java.util.Map" />-->
+<!--        <typeAlias alias="cmap" type="com.boot.shell.common.object.CamelCaseMap" />-->
+<!--        <typeAlias alias="list" type="java.util.ArrayList" />-->
     </typeAliases>
     <typeHandlers>
         <typeHandler handler="org.apache.ibatis.type.SqlDateTypeHandler" javaType="java.sql.Date" jdbcType="DATE"/>

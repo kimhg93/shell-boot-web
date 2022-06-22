@@ -1,4 +1,4 @@
-package com.boot.shell.scheduler;
+package com.boot.shell.common.scheduler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +24,7 @@ public class CustomScheduler {
 
     @PostConstruct
     public void init() {
-        startScheduler(10);
+        //startScheduler(10);
     }
 
     @PreDestroy
@@ -57,10 +57,8 @@ public class CustomScheduler {
         scheduler.setPoolSize(3);
         scheduler.initialize();
 
-        String cron = "*/"+a+" * * * * *";
-
         for(CustomScheduleVo job : jobList.getJobList()){
-            scheduler.schedule(runnable(job), getTrigger(cron));
+            scheduler.schedule(runnable(job), getTrigger(job.getCron()));
             logger.info(job.toString());
         }
     }

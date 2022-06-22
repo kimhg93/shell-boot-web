@@ -25,8 +25,7 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Configuration
 @EnableWebMvc
@@ -132,8 +131,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new SessionInterceptor())
-                .addPathPatterns("/**")
-                .excludePathPatterns("/test/**");
+                .excludePathPatterns("/**");
     }
 
     // contenttype 설정

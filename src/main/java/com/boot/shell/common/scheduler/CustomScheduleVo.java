@@ -1,4 +1,4 @@
-package com.boot.shell.scheduler;
+package com.boot.shell.common.scheduler;
 
 import lombok.Getter;
 import lombok.Setter;
