@@ -1,9 +1,9 @@
 package com.boot.shell.config;
 
+import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,10 +17,10 @@ import java.io.IOException;
 
 @Configuration
 @EnableTransactionManagement
+@RequiredArgsConstructor
 public class JdbcConfig {
 
-    @Autowired
-    ApplicationContext applicationContext;
+    private final ApplicationContext applicationContext;
 
     @Bean
     public DataSource dataSource() {
@@ -43,7 +43,7 @@ public class JdbcConfig {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
         factoryBean.setConfigLocation(applicationContext.getResource("classpath:config/mybatis/configuration.xml"));
-        factoryBean.setMapperLocations(applicationContext.getResources("classpath:config/mybatis/mappers/**/*.xml"));
+        factoryBean.setMapperLocations();
         return factoryBean;
     }
 

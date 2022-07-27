@@ -56,7 +56,6 @@ public class WebConfig implements WebMvcConfigurer {
     public TilesConfigurer tilesConfigurer() {
         TilesConfigurer configure = new TilesConfigurer();
         configure.setDefinitions("/WEB-INF/config/tiles-config.xml");
-        ;
         return configure;
     }
 

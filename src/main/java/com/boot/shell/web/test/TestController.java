@@ -13,7 +13,7 @@ public class TestController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private CustomScheduler customScheduler;
+    private final CustomScheduler customScheduler;
 
     @GetMapping(value="/run")
     public void run(int a) {

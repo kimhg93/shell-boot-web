@@ -21,7 +21,6 @@ public class ControllerTest {
     @Test
     public void controllerTest() throws Exception {
         mok.perform(get("/test"))
-                .andExpect(status().isOk())
-                .andExpect(forwardedUrl("/WEB-INF/views/view.jsp"));
+                .andExpect(status().isOk());
     }
 }

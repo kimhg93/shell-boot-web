@@ -35,6 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
-!/gradlew.bat
-!/settings.gradle
-!/gradlew
+/gradlew.bat
+/settings.gradle
+

@@ -70,8 +70,8 @@ public class CustomScheduler {
 
     public void callJob(CustomScheduleVo job) {
         try {
-            Class<?> strClass = Class.forName(job.getClassName());
-            Object obj = strClass.newInstance();
+            Class strClass = Class.forName(job.getClassName());
+            Object obj = strClass.getDeclaredConstructor().newInstance();
             Method m = strClass.getDeclaredMethod(job.getMethodName(), Object.class);
             m.invoke(obj, job);
         } catch (Exception e){

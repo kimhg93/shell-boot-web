@@ -1,6 +1,7 @@
 package com.boot.shell.aop;
 
 
+import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.aop.Advisor;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;
@@ -22,13 +23,13 @@ import java.util.Properties;
 
 @Aspect
 @Configuration
+@RequiredArgsConstructor
 public class TransactionAspect {
 
     private static final int TX_METHOD_TIMEOUT = 3;
     private static final String AOP_POINTCUT_EXPRESSION = "execution(public *  com.boot.shell.*.*(..))";
 
-    @Autowired
-    PlatformTransactionManager transactionManager;
+    private final PlatformTransactionManager transactionManager;
 
     @Bean
     public TransactionInterceptor txAdvice() {

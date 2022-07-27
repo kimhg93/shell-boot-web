@@ -7,7 +7,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @ToString
 public class Mail {
     private String mailFrom;
