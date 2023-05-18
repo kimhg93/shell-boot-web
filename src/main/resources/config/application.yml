@@ -5,3 +5,28 @@ server:
     encoding:
       charset: UTF-8
 
+logging:
+  charset:
+    console: UTF-8
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n"
+  level:
+    root: info
+    jdbc: off
+    jdbc.sqlonly: off
+    jdbc.sqltiming: debug
+    jdbc.audit: off
+    jdbc.resultset: off
+    jdbc.resultsettable: off
+    jdbc.connection: off
+
+spring:
+  thymeleaf:
+    prefix: classpath:/
+    suffix: .html
+    check-template-location: true
+    cache: false
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
